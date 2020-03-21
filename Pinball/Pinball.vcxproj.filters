@@ -48,6 +48,21 @@
     <ClInclude Include="GameObjects\Obstacles\Wall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PopBumper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrustBumpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VibraniumBumpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kicker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rollover.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -66,6 +81,21 @@
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Obstacles\Wall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopBumper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrustBumpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VibraniumBumpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kicker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rollover.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
