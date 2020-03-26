@@ -4,7 +4,7 @@
 #define GRAVITY 400.0f
 
 Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-              rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+              rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, -30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
               leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
 {
     lastFrame = high_resolution_clock::now();
@@ -28,6 +28,12 @@ void Game::simulate()
     resultantAcceleration += leftWall.collideWith(ball, deltaTime);
     resultantAcceleration += rightWall.collideWith(ball, deltaTime);
     ball.move(resultantAcceleration, deltaTime);
+
+   if (left) {
+     
+        leftFlipper.rotate();//this is the rotate flipper function.
+    }
+   
 }
 
 void Game::updateInterfaceOutput()
