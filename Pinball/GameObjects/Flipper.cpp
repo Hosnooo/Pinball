@@ -15,7 +15,7 @@ void Flipper::draw(Interface & interface)
 }
 
 void Flipper::rotate() {
-    *angleptr =-10; // negative sign to rotate counterclock wise for the left flipper.
+    *angleptr -=10; // negative sign to rotate counterclock wise for the left flipper.
     std:: cout << angle; // to see the change in angle in the console window.
 }
 
