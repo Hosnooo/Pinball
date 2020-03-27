@@ -21,6 +21,10 @@ public:
     Vector2D collideWith(Ball & ball, float collisionTime) override;
     void draw(Interface & interface) override;
 
+
+    float* angleptr = &angle;
     void rotate();
+
+    void setAngle(float angle);
 
 };

@@ -118,3 +118,8 @@ void Interface::drawWall(float position)
             };
     window.draw(line, 2, sf::Lines);
 }
+
+void Interface::drawKicker(FlipperType type, Vector2D origin, float length, float base, float top) {
+
+    // put the code here.
+}

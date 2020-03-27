@@ -31,8 +31,11 @@ void Game::simulate()
 
    if (left) {
      
-        leftFlipper.rotate();//this is the rotate flipper function.
+        leftFlipper.rotate(); //this is the rotate flipper function.
     }
+   else {
+       leftFlipper.setAngle(-30.f);
+   }
    
 }
 
