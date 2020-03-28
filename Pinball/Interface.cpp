@@ -15,7 +15,7 @@ void Interface::getControls(bool & exit, bool & left, bool & right)
     exit = sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
     left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
     right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
-}
+}//
 
 void Interface::clear()
 {
@@ -119,7 +119,24 @@ void Interface::drawWall(float position)
     window.draw(line, 2, sf::Lines);
 }
 
-void Interface::drawKicker(FlipperType type, Vector2D origin, float length, float base, float top) {
 
-    // put the code here.
+    // draws a kicker
+    void Interface::drawKicker(FlipperType type, Vector2D refpoint, float length, float base, float top) {
+        float flip = type == RIGHT ? 1.0f : -1.0f;
+
+        sf::ConvexShape kicker(4);
+        kicker.setPoint(0, sf::Vector2f(refpoint.x, refpoint.y));
+        kicker.setPoint(1, sf::Vector2f(refpoint.x, refpoint.y + length));
+        kicker.setPoint(2, sf::Vector2f(refpoint.x - base, refpoint.y + length));
+        kicker.setPoint(3, sf::Vector2f(refpoint.x - top, refpoint.y));
+
+        kicker.setOrigin(refpoint.x, refpoint.y);
+        kicker.setPosition(refpoint.x, refpoint.y);
+        kicker.setFillColor(fillColor);
+        kicker.setOutlineColor(outlineColor);
+        kicker.setOutlineThickness(2);
+        kicker.setScale(flip, 1.0f);
+
+        window.draw(kicker);
+
 }

@@ -11,6 +11,8 @@ using namespace std;
 #include "GameObjects/Ball.h"
 #include "GameObjects/Obstacles/Wall.h"
 #include "GameObjects/Flipper.h"
+#include "Kicker.h"
+
 
 // Represents a game, keeps track of everything relevant to the game and delegates the tasks to their proper objects
 class Game
@@ -22,6 +24,8 @@ private:
 
     Ball ball;  // The ball (obviously :D)
     Flipper leftFlipper, rightFlipper;  // The right and left flippers
+    Kicker rightKicker, leftKicker; // The right and left kickers
+    
     Wall leftWall, rightWall;  // This line should be replaced by an array of obstacles
 public:
     Game();
