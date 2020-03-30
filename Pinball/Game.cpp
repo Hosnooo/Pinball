@@ -8,10 +8,20 @@ rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DIS
 
 rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
 leftKicker(LEFT, Vector2D{ 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
+
 Gate1hor(Vector2D{ GAME_WIDTH - 25- GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
 Gate2hor(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
 Gate1ver(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
 Gate2ver(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
+
+Switch1(Vector2D{ GAME_WIDTH - 100 - ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 90+SWITCH_ROTAION),
+Switch2(Vector2D{ 100 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 0),
+Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 450 }, ARC_LENGTH, 180-SWITCH_ROTAION),
+Switch4(Vector2D{ 100, GAME_HEIGHT - 450 }, ARC_LENGTH, 180+SWITCH_ROTAION),
+
+
+
+
 
 
 
@@ -70,6 +80,11 @@ void Game::updateInterfaceOutput()
     Gate2hor.draw(interface);
     Gate1ver.draw(interface);
     Gate2ver.draw(interface);
+
+    Switch1.draw(interface);
+    Switch2.draw(interface);
+    Switch3.draw(interface);
+    Switch4.draw(interface);
 
     
     ball.draw(interface);

@@ -153,3 +153,22 @@ void Interface::drawWall(float position)
         window.draw(Gate);
 
 	}
+
+    void Interface::drawSwitch(Vector2D refpoint, float arclength, float angle)
+    {
+        sf::ConvexShape Arc;
+        Arc.setPointCount(5);
+
+        // define the points
+        Arc.setPoint(0, sf::Vector2f(refpoint.x, refpoint.y));
+        Arc.setPoint(1, sf::Vector2f(refpoint.x + arclength/5, refpoint.y + 1));
+        Arc.setPoint(2, sf::Vector2f(refpoint.x + 2*arclength/5, refpoint.y + 2*1));
+        Arc.setPoint(3, sf::Vector2f(refpoint.x + 3 * arclength/5, refpoint.y + 1));
+        Arc.setPoint(4, sf::Vector2f(refpoint.x + 4 * arclength/5, refpoint.y));
+
+        Arc.setFillColor(switchFillColor);
+        Arc.setOrigin(sf::Vector2f(refpoint.x + sqrt((pow(2 * arclength, 2) - 4)), (refpoint.y + 2 * 1) - (-1 + (sqrt(pow(arclength, 2) - 1)) / 2))); // origin equation
+        Arc.setPosition(refpoint.x, refpoint.y);
+        Arc.setRotation(angle);
+        window.draw(Arc);
+    }

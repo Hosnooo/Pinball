@@ -13,6 +13,7 @@ using namespace std;
 #include "GameObjects/Flipper.h"
 #include "Kicker.h"
 #include "Gate.h"
+#include "Switch.h"
 
 
 
@@ -30,6 +31,7 @@ private:
     Flipper leftFlipper, rightFlipper;  // The right and left flippers
     Kicker rightKicker, leftKicker; // The right and left kickers
     Gate   Gate1hor, Gate2hor, Gate1ver, Gate2ver; // 4 Gates
+    Switch Switch1, Switch2, Switch3, Switch4; // 4 Switches
     
     Wall leftWall, rightWall;  // This line should be replaced by an array of obstacles
 public:

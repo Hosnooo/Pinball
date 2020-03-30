@@ -7,7 +7,7 @@ private:
 	Vector2D refpoint; // refrence point to position the gate on canvas
 
 public:
-	Gate(Vector2D refpoint, float length, float Rotate);
+	Gate(Vector2D refpoint, float length, float angle);
 	void draw(Interface& interface) override;
 	Vector2D collideWith(Ball& ball, float collisionTime) override;
 };
