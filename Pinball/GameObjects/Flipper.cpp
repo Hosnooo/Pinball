@@ -14,9 +14,15 @@ void Flipper::draw(Interface & interface)
     interface.drawFlipper(type, center, length, angle, majorRadius, minorRadius);
 }
 
+
+//Rotate the flipper.
 void Flipper::rotate() {
-    *angleptr -=10; // negative sign to rotate counterclock wise for the left flipper.
-    std:: cout << angle; // to see the change in angle in the console window.
+    if( type== LEFT&& angle>-50)
+    angle-=20; // negative sign to rotate counterclock wise for the left flipper.
+   
+    if (type == RIGHT && angle <50)
+        angle += 20; 
+      std:: cout << angle; // to see the change in angle in the console window.
 }
 
 void Flipper::setAngle(float angle) {

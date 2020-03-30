@@ -2,7 +2,6 @@
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-
 #include "Defs.h"
 
 // Represents the game interface
@@ -31,7 +30,7 @@ public:
     void drawBall(Vector2D center, float radius);  // Draws a ball
     void drawFlipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);  // Draws a flipper
     void drawWall(float position);  // Draws a vertical wall
-    void drawKicker(FlipperType type, Vector2D origin, float length, float base, float top);  // Draws a Kicker
+    void drawKicker(FlipperType type, Vector2D refpoint, float length, float base, float top);  // Draws a Kicker
 
 
 

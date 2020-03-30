@@ -22,7 +22,6 @@ public:
     void draw(Interface & interface) override;
 
     //angle functions
-    float* angleptr = &angle;
     void rotate();
 
     void setAngle(float angle);

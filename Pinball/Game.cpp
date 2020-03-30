@@ -3,9 +3,13 @@
 
 #define GRAVITY 400.0f
 
-Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-              rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, -30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-              leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
+Game::Game() : leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+               rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+
+               rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP), 
+               leftKicker(LEFT, Vector2D { 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
+               
+               leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
 {
     lastFrame = high_resolution_clock::now();
     exit = left = right = false;
@@ -29,14 +33,16 @@ void Game::simulate()
     resultantAcceleration += rightWall.collideWith(ball, deltaTime);
     ball.move(resultantAcceleration, deltaTime);
 
-   if (left) {
-     
-        leftFlipper.rotate(); //this is the rotate flipper function.
-    }
+   if (left)
+        leftFlipper.rotate(); //this is the rotate flipper function
    else {
-       leftFlipper.setAngle(-30.f);
+       leftFlipper.setAngle(30.f);
    }
-   
+   if (right)
+       rightFlipper.rotate(); //this is the rotate flipper function
+   else {
+       rightFlipper.setAngle(-30.f);
+   }
 }
 
 void Game::updateInterfaceOutput()
@@ -50,11 +56,13 @@ void Game::updateInterfaceOutput()
     leftWall.draw(interface);
     rightWall.draw(interface);
 
+    rightKicker.draw(interface);
+    leftKicker.draw(interface);
+    
     ball.draw(interface);
     interface.display();
 }
 
-bool Game::exited()
-{
+bool Game::exited() {
     return exit;
 }
