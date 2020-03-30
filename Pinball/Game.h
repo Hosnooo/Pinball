@@ -12,6 +12,10 @@ using namespace std;
 #include "GameObjects/Obstacles/Wall.h"
 #include "GameObjects/Flipper.h"
 #include "Kicker.h"
+#include "Gate.h"
+
+
+
 
 
 // Represents a game, keeps track of everything relevant to the game and delegates the tasks to their proper objects
@@ -25,6 +29,7 @@ private:
     Ball ball;  // The ball (obviously :D)
     Flipper leftFlipper, rightFlipper;  // The right and left flippers
     Kicker rightKicker, leftKicker; // The right and left kickers
+    Gate   Gate1hor, Gate2hor, Gate1ver, Gate2ver; // 4 Gates
     
     Wall leftWall, rightWall;  // This line should be replaced by an array of obstacles
 public:

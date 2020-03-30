@@ -150,10 +150,12 @@
     <ClInclude Include="GameObjects\Flipper.h" />
     <ClInclude Include="GameObjects\Obstacles\Obstacle.h" />
     <ClInclude Include="GameObjects\Obstacles\Wall.h" />
+    <ClInclude Include="Gate.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Kicker.h" />
     <ClInclude Include="PopBumper.h" />
     <ClInclude Include="Rollover.h" />
+    <ClInclude Include="Switch.h" />
     <ClInclude Include="ThrustBumpers.h" />
     <ClInclude Include="VibraniumBumpers.h" />
   </ItemGroup>
@@ -167,6 +169,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PopBumper.cpp" />
     <ClCompile Include="Rollover.cpp" />
+    <ClCompile Include="Gate.cpp" />
+    <ClCompile Include="Switch.cpp" />
     <ClCompile Include="ThrustBumpers.cpp" />
     <ClCompile Include="VibraniumBumpers.cpp" />
   </ItemGroup>

@@ -140,3 +140,16 @@ void Interface::drawWall(float position)
         window.draw(kicker);
 
 }
+
+	void Interface::drawGate(Vector2D refpoint, float length, float angle)
+	{
+        sf::RectangleShape Gate(sf::Vector2f(length, 5.f));
+        Gate.rotate(angle);
+
+        Gate.setPosition(refpoint.x,refpoint.y);
+        Gate.setFillColor(gateFillColor);
+        Gate.setOutlineColor(outlineColor);
+
+        window.draw(Gate);
+
+	}

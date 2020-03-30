@@ -10,3 +10,4 @@ Vector2D Kicker::collideWith(Ball& ball, float collisionTime)
 void Kicker::draw(Interface& ineterface) {
 	ineterface.drawKicker(type, refpoint, length, base, top);
 }
+

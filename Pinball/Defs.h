@@ -33,3 +33,7 @@ enum FlipperType { LEFT, RIGHT };
 #define KICKER_LENGTH 100
 #define KICKER_TOP 30
 #define KICKER_BASE 100
+#define GATE_LENGTH 8*BALL_RADIUS
+#define GATE_VERTICAL 90
+#define GATE_HORIZONTAL 0
+

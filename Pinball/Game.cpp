@@ -4,11 +4,18 @@
 #define GRAVITY 400.0f
 
 Game::Game() : leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-               rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
 
-               rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP), 
-               leftKicker(LEFT, Vector2D { 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
-               
+rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
+leftKicker(LEFT, Vector2D{ 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
+Gate1hor(Vector2D{ GAME_WIDTH - 25- GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
+Gate2hor(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
+Gate1ver(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
+Gate2ver(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
+
+
+
+
                leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
 {
     lastFrame = high_resolution_clock::now();
@@ -58,6 +65,12 @@ void Game::updateInterfaceOutput()
 
     rightKicker.draw(interface);
     leftKicker.draw(interface);
+
+    Gate1hor.draw(interface);
+    Gate2hor.draw(interface);
+    Gate1ver.draw(interface);
+    Gate2ver.draw(interface);
+
     
     ball.draw(interface);
     interface.display();

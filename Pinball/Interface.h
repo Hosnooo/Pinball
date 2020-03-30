@@ -17,7 +17,8 @@ private:
         outlineColor = sf::Color::Black,
         ballFillColor = sf::Color::White,
         fillColor = sf::Color::White,
-        flipperFillColor = sf::Color::White;
+        flipperFillColor = sf::Color::White,
+        gateFillColor = sf::Color::Red;
     const float outlineThickness = -2.0f;  // Negative sign means inwards
 
 public:
@@ -31,6 +32,7 @@ public:
     void drawFlipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);  // Draws a flipper
     void drawWall(float position);  // Draws a vertical wall
     void drawKicker(FlipperType type, Vector2D refpoint, float length, float base, float top);  // Draws a Kicker
+    void drawGate(Vector2D refpoint, float length, float angle); //Draws a Gate
 
 
 
