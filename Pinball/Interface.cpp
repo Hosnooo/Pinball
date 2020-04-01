@@ -172,3 +172,7 @@ void Interface::drawWall(float position)
         Arc.setRotation(angle);
         window.draw(Arc);
     }
+
+    void Interface::drawBumper(Vector2D center, float radius, bool coat) {
+        //
+    }
