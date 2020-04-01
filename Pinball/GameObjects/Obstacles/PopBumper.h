@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObjects/Obstacles/Obstacle.h"
+#include "Obstacle.h"
 class PopBumper : public Obstacle{
 
 };

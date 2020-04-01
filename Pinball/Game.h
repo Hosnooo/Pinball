@@ -11,9 +11,9 @@ using namespace std;
 #include "GameObjects/Ball.h"
 #include "GameObjects/Obstacles/Wall.h"
 #include "GameObjects/Flipper.h"
-#include "Kicker.h"
-#include "Gate.h"
-#include "Switch.h"
+#include "GameObjects/Obstacles/Kicker.h"
+#include "GameObjects/Obstacles/Gate.h"
+#include "GameObjects/Obstacles/Switch.h"
 
 
 
