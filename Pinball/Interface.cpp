@@ -157,17 +157,22 @@ void Interface::drawWall(float position)
     void Interface::drawSwitch(Vector2D refpoint, float arclength, float angle)
     {
         sf::ConvexShape Arc;
-        Arc.setPointCount(5);
+        Arc.setPointCount(9);
 
         // define the points
         Arc.setPoint(0, sf::Vector2f(refpoint.x, refpoint.y));
-        Arc.setPoint(1, sf::Vector2f(refpoint.x + arclength/5, refpoint.y + 1));
-        Arc.setPoint(2, sf::Vector2f(refpoint.x + 2*arclength/5, refpoint.y + 2*1));
-        Arc.setPoint(3, sf::Vector2f(refpoint.x + 3 * arclength/5, refpoint.y + 1));
-        Arc.setPoint(4, sf::Vector2f(refpoint.x + 4 * arclength/5, refpoint.y));
+        Arc.setPoint(1, sf::Vector2f(refpoint.x + arclength/7, refpoint.y + 10));
+        Arc.setPoint(2, sf::Vector2f(refpoint.x + 2*arclength/7, refpoint.y + 2 * 10));
+        Arc.setPoint(3, sf::Vector2f(refpoint.x + 3 * arclength/7, refpoint.y + 2.2 * 10));
+        Arc.setPoint(4, sf::Vector2f(refpoint.x + 4 * arclength / 7, refpoint.y + 2.5 * 10));
+        Arc.setPoint(5, sf::Vector2f(refpoint.x + 5 * arclength/ 7, refpoint.y + 2.2 * 10));
+        Arc.setPoint(6, sf::Vector2f(refpoint.x + 6*arclength/7, refpoint.y + 2 * 10));
+        Arc.setPoint(7, sf::Vector2f(refpoint.x +  7* arclength/7, refpoint.y + 10));
+        Arc.setPoint(8, sf::Vector2f(refpoint.x + 8* arclength/7, refpoint.y));
 
         Arc.setFillColor(switchFillColor);
-        Arc.setOrigin(sf::Vector2f(refpoint.x + sqrt((pow(2 * arclength, 2) - 4)), (refpoint.y + 2 * 1) - (-1 + (sqrt(pow(arclength, 2) - 1)) / 2))); // origin equation
+       // Arc.setOrigin(sf::Vector2f(refpoint.x + sqrt((pow(2 * arclength, 2) - 4)), (refpoint.y + 2 * 1) - (-1 + (sqrt(pow(arclength, 2) - 1)) / 2))); // origin equation
+        Arc.setOrigin(refpoint.x, refpoint.y);
         Arc.setPosition(refpoint.x, refpoint.y);
         Arc.setRotation(angle);
         window.draw(Arc);

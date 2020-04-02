@@ -37,5 +37,5 @@ enum FlipperType { LEFT, RIGHT };
 #define GATE_VERTICAL 90
 #define GATE_HORIZONTAL 0
 #define ARC_LENGTH 6*BALL_RADIUS
-#define SWITCH_ROTAION 70
+#define SWITCH_ROTAION 90
 
