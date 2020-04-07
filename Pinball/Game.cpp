@@ -14,7 +14,7 @@ Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + 
             Gate1ver(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
             Gate2ver(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
 
-            Switch1(Vector2D{ GAME_WIDTH - 200 - ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, -70),
+            Switch1(Vector2D{ GAME_WIDTH - 200 - ARC_LENGTH, GAME_HEIGHT - 300 + ARC_LENGTH }, ARC_LENGTH, -70),
             Switch2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 70),
             Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH}, ARC_LENGTH, - SWITCH_ROTAION),
             Switch4(Vector2D{ 100 + 3/2*ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, SWITCH_ROTAION),

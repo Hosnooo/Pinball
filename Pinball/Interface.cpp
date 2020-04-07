@@ -169,8 +169,9 @@ void Interface::drawWall(float position)
         Arc.setPoint(6, sf::Vector2f(refpoint.x + 6*arclength/7, refpoint.y + 2 * 10));
         Arc.setPoint(7, sf::Vector2f(refpoint.x +  7* arclength/7, refpoint.y + 10));
         Arc.setPoint(8, sf::Vector2f(refpoint.x + 8* arclength/7, refpoint.y));
-
+        Arc.setOutlineThickness(outlineThickness);
         Arc.setFillColor(switchFillColor);
+        Arc.setOutlineColor(outlineColor);
        // Arc.setOrigin(sf::Vector2f(refpoint.x + sqrt((pow(2 * arclength, 2) - 4)), (refpoint.y + 2 * 1) - (-1 + (sqrt(pow(arclength, 2) - 1)) / 2))); // origin equation
         Arc.setOrigin(refpoint.x, refpoint.y);
         Arc.setPosition(refpoint.x, refpoint.y);

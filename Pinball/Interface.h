@@ -19,7 +19,7 @@ private:
         fillColor = sf::Color::White,
         flipperFillColor = sf::Color::White,
         gateFillColor = sf::Color::Red,
-        switchFillColor = sf::Color::Black;
+        switchFillColor = sf::Color::White;
     const float outlineThickness = -2.0f;  // Negative sign means inwards
 
 public:
