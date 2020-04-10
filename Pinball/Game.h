@@ -38,6 +38,7 @@ public:
     Game();
     void readInterfaceInput();
     void simulate();
+    bool GameOver();
     void updateInterfaceOutput();
     bool exited();
 };

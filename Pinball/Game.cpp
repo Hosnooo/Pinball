@@ -60,6 +60,15 @@ void Game::simulate()
    else {
        rightFlipper.setAngle(-30.f);
    }
+   
+}
+
+bool Game::GameOver()
+{
+    if (ball.getCenter().y - GAME_HEIGHT >= 0)
+        return true;
+    else
+        return false;
 }
 
 void Game::updateInterfaceOutput()
@@ -95,5 +104,9 @@ void Game::updateInterfaceOutput()
 }
 
 bool Game::exited() {
+    if(GameOver())
+    {
+        exit = GameOver();
+    }
     return exit;
 }

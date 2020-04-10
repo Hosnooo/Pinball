@@ -12,6 +12,7 @@ int main()
         game.simulate();
         // Update the game graphical interface
         game.updateInterfaceOutput();
+        
     }
     return 0;
 }
