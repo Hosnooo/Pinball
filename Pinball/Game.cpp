@@ -1,4 +1,7 @@
 #include "Game.h"
+using namespace sf;
+#include<iostream>
+using namespace std;
 
 #define GRAVITY 400.0f
 
@@ -23,6 +26,22 @@ Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + 
             bumper2( Vector2D{ 400.0f,250.0f }, 35.0f, false),
             bumper3( Vector2D{ 300.0f,200.0f }, 40.0f, true),
             bumper4( Vector2D{ 400.0f,150.0f }, 30.0f, false),
+
+    Sp1(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2, GAME_HEIGHT - 200 }),
+    Sp2(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 175 }),
+    Sp3(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 150 }),
+    Sp4(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 125 }),
+
+
+    C1(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 150,GAME_HEIGHT - 380 }),
+    C2(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 200,GAME_HEIGHT - 400 }),
+    C3(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 170,GAME_HEIGHT - 450 }),
+
+    M1(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 500,GAME_HEIGHT - 475 }),
+    M2(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 400,GAME_HEIGHT - 350 }),
+    M3(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 550,GAME_HEIGHT - 300 }),
+
+    s(Vector2D{ 0, 0 }),
 
             leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
 {
@@ -61,12 +80,24 @@ void Game::simulate()
    
 }
 
-bool Game::GameOver()
+void Game::GameOver()
 {
     if (ball.getCenter().y - GAME_HEIGHT >= 0)
-        return true;
-    else
-        return false;
+    {
+        sf::Font font;
+      /*  if (!font.loadFromFile("ASMAN.ttf"));
+        {
+            cout << "error loading the file ";
+            system("pause");
+        }*/
+
+        Text text;
+        text.setFont(font);
+        text.setString("GAME OVER");
+        text.setCharacterSize(220);
+        text.setPosition(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+    }
+
 }
 
 void Game::updateInterfaceOutput()
@@ -97,6 +128,21 @@ void Game::updateInterfaceOutput()
     bumper2.draw(interface);
     bumper3.draw(interface);
     bumper4.draw(interface);
+
+    Sp1.draw(interface);
+    Sp2.draw(interface);
+    Sp3.draw(interface);
+    Sp4.draw(interface);
+
+    C1.draw(interface);
+    C2.draw(interface);
+    C3.draw(interface);
+
+    M1.draw(interface);
+    M2.draw(interface);
+    M3.draw(interface);
+
+    s.draw(interface);
     
     ball.draw(interface);
     interface.display();

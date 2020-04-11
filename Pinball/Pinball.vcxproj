@@ -145,17 +145,20 @@
     <ClInclude Include="Defs.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjects\Ball.h" />
+    <ClInclude Include="GameObjects\Collectables.h" />
     <ClInclude Include="GameObjects\Collidable.h" />
     <ClInclude Include="GameObjects\Drawable.h" />
     <ClInclude Include="GameObjects\Flipper.h" />
     <ClInclude Include="GameObjects\Obstacles\Bumper.h" />
-    <ClInclude Include="GameObjects\Obstacles\Collectables.h" />
     <ClInclude Include="GameObjects\Obstacles\Gate.h" />
     <ClInclude Include="GameObjects\Obstacles\Kicker.h" />
     <ClInclude Include="GameObjects\Obstacles\Obstacle.h" />
     <ClInclude Include="GameObjects\Obstacles\Rollover.h" />
+    <ClInclude Include="GameObjects\Obstacles\ScoreMultipliers.h" />
     <ClInclude Include="GameObjects\Obstacles\Switch.h" />
     <ClInclude Include="GameObjects\Obstacles\Wall.h" />
+    <ClInclude Include="GameObjects\Score.h" />
+    <ClInclude Include="GameObjects\SpeedBoosters.h" />
     <ClInclude Include="Gate.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Switch.h" />
@@ -163,14 +166,17 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjects\Ball.cpp" />
+    <ClCompile Include="GameObjects\Collectables.cpp" />
     <ClCompile Include="GameObjects\Flipper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Bumper.cpp" />
-    <ClCompile Include="GameObjects\Obstacles\Collectables.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Gate.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Kicker.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Rollover.cpp" />
+    <ClCompile Include="GameObjects\Obstacles\ScoreMultipliers.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Switch.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Wall.cpp" />
+    <ClCompile Include="GameObjects\Score.cpp" />
+    <ClCompile Include="GameObjects\SpeedBoosters.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

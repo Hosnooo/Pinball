@@ -1,10 +1,10 @@
 #pragma once
 
 #include <chrono>
+
 using namespace std::chrono;
 
 #include <string>
-using namespace std;
 
 #include "Interface.h"
 #include "Defs.h"
@@ -15,6 +15,10 @@ using namespace std;
 #include "GameObjects/Obstacles/Gate.h"
 #include "GameObjects/Obstacles/Switch.h"
 #include"GameObjects/Obstacles/Bumper.h"
+#include "GameObjects/Obstacles/ScoreMultipliers.h"
+#include "GameObjects/Score.h"
+#include "GameObjects/Collectables.h"
+#include "GameObjects/SpeedBoosters.h"
 
 
 
@@ -34,13 +38,17 @@ private:
     Gate   Gate1hor, Gate2hor, Gate1ver, Gate2ver; // 4 Gates
     Switch Switch1, Switch2, Switch3, Switch4; // 4 Switches
     Bumper bumper1, bumper2, bumper3, bumper4;  // 4 Bumpers. odd numbered bumpers have coating.
+    SpeedBoosters Sp1, Sp2, Sp3, Sp4; //3 speedboosters
+    Collectables C1, C2, C3;
+    ScoreMultipliers M1, M2, M3;
+    Score s;
     
     Wall leftWall, rightWall;  // This line should be replaced by an array of obstacles
 public:
     Game();
     void readInterfaceInput();
     void simulate();
-    bool GameOver();
+    void GameOver();
     void updateInterfaceOutput();
     bool exited();
 };

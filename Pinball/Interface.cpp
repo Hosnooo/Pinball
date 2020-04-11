@@ -1,4 +1,7 @@
 #include "Interface.h"
+using namespace sf;
+#include<iostream>
+using namespace std;
 
 Interface::Interface()
 {
@@ -194,4 +197,76 @@ void Interface::drawWall(float position)
 
 
         window.draw(bumper);
+    }
+
+    void Interface::drawSpeedBooster(Vector2D center, float radius)
+    {
+
+        CircleShape triangle;
+        triangle.setRadius(radius);
+        triangle.setPointCount(3);
+        triangle.setOrigin(radius, radius);
+        triangle.setPosition(center.x, center.y);
+        triangle.setFillColor(Color::Green);
+        triangle.setOutlineThickness(2.f);
+        triangle.setOutlineColor(Color::Black);
+        window.draw(triangle);
+    }
+
+    void Interface::drawCollectable(Vector2D center, float radius)
+    {
+        CircleShape C;
+        C.setRadius(radius);
+        C.setOrigin(radius, radius);
+        C.setPosition(center.x, center.y);
+        C.setFillColor(Color::Cyan);
+        C.setOutlineThickness(2.f);
+        C.setOutlineColor(Color::Black);
+        window.draw(C);
+    }
+
+    void Interface::drawScoreMultiplier(Vector2D center, float radius)
+    {
+        CircleShape M;
+        CircleShape N;
+
+        M.setRadius(radius);
+        M.setOrigin(radius, radius);
+        M.setPosition(center.x, center.y);
+        M.setFillColor(Color::Blue);
+        M.setOutlineThickness(2.f);
+        M.setOutlineColor(Color::Black);
+        window.draw(M);
+
+        N.setRadius(radius / 2);
+        N.setOrigin(radius / 2, radius / 2);
+        N.setPointCount(5);
+        N.setPosition(center.x, center.y);
+        N.setFillColor(Color::Yellow);
+        N.setOutlineThickness(2.f);
+        N.setOutlineColor(Color::Black);
+        window.draw(N);
+    }
+
+
+
+
+    void Interface::drawScore(Vector2D center)
+    {
+        sf::Font font;
+        
+
+     /*  if (!font.loadFromFile("ASMAN.ttf"));
+         {
+             cout << "error loading the file ";                                            //I tried diffrent .ttf files but they all fail. We can't read from file
+             system("pause");
+
+         }*/
+
+        Text text;
+        text.setFont(font);
+        text.setString("Score:0000000");
+        text.setCharacterSize(22);
+        text.setPosition(0, 0);
+        window.draw(text);
     }

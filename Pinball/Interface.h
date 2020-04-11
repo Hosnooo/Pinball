@@ -36,6 +36,10 @@ public:
     void drawGate(Vector2D refpoint, float length, float angle); //Draws a Gate
     void drawSwitch(Vector2D refpoint, float length, float angle); //Draws a Switch
     void drawBumper(Vector2D center, float radius, bool coat); // Draws any Bumper
+    void drawSpeedBooster(Vector2D center, float radius);
+    void drawCollectable(Vector2D center, float radius);
+    void drawScoreMultiplier(Vector2D center, float radius);
+    void drawScore(Vector2D center);
 
 
 };
