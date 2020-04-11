@@ -15,7 +15,7 @@ void Interface::getControls(bool & exit, bool & left, bool & right)
     exit = sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
     left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
     right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
-}//
+}
 
 void Interface::clear()
 {
@@ -180,5 +180,18 @@ void Interface::drawWall(float position)
     }
 
     void Interface::drawBumper(Vector2D center, float radius, bool coat) {
-        //
+        sf::CircleShape bumper(radius);
+        bumper.setOrigin(radius, radius);
+        bumper.setPosition(center.x, center.y);
+        bumper.setFillColor(fillColor);
+        bumper.setOutlineColor(outlineColor);
+        bumper.setOutlineThickness(2);
+
+        if (coat) {
+            bumper.setOutlineColor(sf::Color::Red);
+            bumper.setOutlineThickness(6);
+        }
+
+
+        window.draw(bumper);
     }

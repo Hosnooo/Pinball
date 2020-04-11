@@ -1,4 +1,3 @@
-
 #include "Game.h"
 
 #define GRAVITY 400.0f
@@ -18,15 +17,14 @@ Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + 
             Switch2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 70),
             Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH}, ARC_LENGTH, - SWITCH_ROTAION),
             Switch4(Vector2D{ 100 + 3/2*ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, SWITCH_ROTAION),
+            
+            //Odd numbered bumpers have coating.
+            bumper1( Vector2D{ 500.0f,200.0f }, 40.0f, true),
+            bumper2( Vector2D{ 400.0f,250.0f }, 35.0f, false),
+            bumper3( Vector2D{ 300.0f,200.0f }, 40.0f, true),
+            bumper4( Vector2D{ 400.0f,150.0f }, 30.0f, false),
 
-            // add some bumpers here.
-
-
-
-
-
-
-               leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
+            leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
 {
     lastFrame = high_resolution_clock::now();
     exit = left = right = false;
@@ -95,18 +93,18 @@ void Game::updateInterfaceOutput()
     Switch3.draw(interface);
     Switch4.draw(interface);
 
-    // draw some bumpers below.
-
-
+    bumper1.draw(interface);
+    bumper2.draw(interface);
+    bumper3.draw(interface);
+    bumper4.draw(interface);
     
     ball.draw(interface);
     interface.display();
 }
 
 bool Game::exited() {
-    if(GameOver())
-    {
-        exit = GameOver();
-    }
+   /* if(GameOver())
+        exit = GameOver();*/
+
     return exit;
 }

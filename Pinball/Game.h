@@ -14,6 +14,7 @@ using namespace std;
 #include "GameObjects/Obstacles/Kicker.h"
 #include "GameObjects/Obstacles/Gate.h"
 #include "GameObjects/Obstacles/Switch.h"
+#include"GameObjects/Obstacles/Bumper.h"
 
 
 
@@ -32,6 +33,7 @@ private:
     Kicker rightKicker, leftKicker; // The right and left kickers
     Gate   Gate1hor, Gate2hor, Gate1ver, Gate2ver; // 4 Gates
     Switch Switch1, Switch2, Switch3, Switch4; // 4 Switches
+    Bumper bumper1, bumper2, bumper3, bumper4;  // 4 Bumpers. odd numbered bumpers have coating.
     
     Wall leftWall, rightWall;  // This line should be replaced by an array of obstacles
 public:
