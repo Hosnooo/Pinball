@@ -48,12 +48,6 @@
     <ClInclude Include="GameObjects\Obstacles\Wall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Switch.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Gate.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Obstacles\Rollover.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>

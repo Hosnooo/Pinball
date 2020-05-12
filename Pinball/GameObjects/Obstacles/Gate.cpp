@@ -7,7 +7,9 @@ Vector2D Gate::collideWith(Ball& ball, float collisionTime)
 	return Vector2D();
 }
 
+
+
 void Gate::draw(Interface& interface) 
 {
 	interface.drawGate(refpoint, length, angle);
-};
+}
