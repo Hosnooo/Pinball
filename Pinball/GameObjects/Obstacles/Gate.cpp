@@ -1,4 +1,5 @@
 #include "Gate.h"
+#include <cmath>
 
 Gate::Gate(Vector2D refpoint, float arclength, float angle): arclength(arclength), refpoint(refpoint), angle(angle){}
 
@@ -9,7 +10,7 @@ Vector2D Gate::collideWith(Ball& ball, float collisionTime)
         && (abs(refpoint.x - ball.getCenter().x) < ball.getRadius() || abs(refpoint.x + ARC_LENGTH - ball.getCenter().x) < ball.getRadius()))
     {
            collidedLastFrame = true;
-            return Vector2D{ ball.getVelocity().x, ball.getVelocity().y * -1 } / collisionTime;
+            return Vector2D{ 0, ball.getVelocity().y * -2 } / collisionTime;
        
        
     }

@@ -69,6 +69,10 @@ void Game::simulate()
     resultantAcceleration += Switch2.collideWith(ball, deltaTime);
     resultantAcceleration += Switch3.collideWith(ball, deltaTime);
     resultantAcceleration += Switch4.collideWith(ball, deltaTime);
+    resultantAcceleration += Gate1.collideWith(ball, deltaTime);
+    resultantAcceleration += Gate2.collideWith(ball, deltaTime);
+    resultantAcceleration += Gate3.collideWith(ball, deltaTime);
+    resultantAcceleration += Gate4.collideWith(ball, deltaTime);
 
     ball.move(resultantAcceleration, deltaTime);
 
