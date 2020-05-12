@@ -1,15 +1,32 @@
 #include "Gate.h"
 
-Gate::Gate(Vector2D refpoint, float length, float angle) : length(length), refpoint(refpoint), angle(angle){}
+Gate::Gate(Vector2D refpoint, float arclength, float angle): arclength(arclength), refpoint(refpoint), angle(angle){}
 
 Vector2D Gate::collideWith(Ball& ball, float collisionTime)
 {
-	return Vector2D();
+  
+    if (!collidedLastFrame && abs(refpoint.y - ball.getCenter().y) < ball.getRadius())
+    {
+        if (passed == true)
+        {
+            collidedLastFrame = true;
+            return Vector2D{ ball.getVelocity().x * -2 * cos(angle), ball.getVelocity().y * -2 * sin(angle) } / collisionTime;
+        }
+        setpassed(true);
+    }
+    else
+    {
+    }
 }
 
-
-
-void Gate::draw(Interface& interface) 
+void Gate::setpassed(bool passed)
 {
-	interface.drawGate(refpoint, length, angle);
+    this->passed = passed;
 }
+
+void Gate::draw(Interface& interface)
+{
+    interface.drawGate(refpoint, arclength, angle);
+
+};
+

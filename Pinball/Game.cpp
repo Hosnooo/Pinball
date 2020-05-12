@@ -13,13 +13,13 @@ Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + 
 
             Gate1hor(Vector2D{ GAME_WIDTH - 25- GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
             Gate2hor(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
-            Gate1ver(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
-            Gate2ver(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_VERTICAL),
+            Gate1ver(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Gate2ver(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
 
-            Switch1(Vector2D{ GAME_WIDTH - 200 - ARC_LENGTH, GAME_HEIGHT - 300 + ARC_LENGTH }, ARC_LENGTH, -70),
-            Switch2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 70),
-            Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH}, ARC_LENGTH, - SWITCH_ROTAION),
-            Switch4(Vector2D{ 100 + 3/2*ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, SWITCH_ROTAION),
+            Switch1(Vector2D{ GAME_WIDTH - 200 - ARC_LENGTH, GAME_HEIGHT - 300 + ARC_LENGTH }, ARC_LENGTH, 0),
+            Switch2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 0),
+            Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH}, ARC_LENGTH, 0),
+            Switch4(Vector2D{ 100 + 3/2*ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, 0),
             
             //Odd numbered bumpers have coating.
             bumper1( Vector2D{ 500.0f,200.0f }, 40.0f, true),

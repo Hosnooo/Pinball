@@ -1,31 +1,23 @@
 #include "Switch.h"
 
-Switch::Switch(Vector2D refpoint, float arclength, float angle): arclength(arclength), refpoint(refpoint), angle(angle){}
+Switch::Switch(Vector2D refpoint, float length, float angle) : length(length), refpoint(refpoint), angle(angle){}
 
 Vector2D Switch::collideWith(Ball& ball, float collisionTime)
 {
-  
-    if (!collidedLastFrame && abs(position - ball.getCenter().x) < ball.getRadius())
+    if (!collidedLastFrame && abs(refpoint.y - ball.getCenter().y) < ball.getRadius())
     {
-        if (passed == true)
-        {
-            collidedLastFrame = true;
-            return Vector2D{ ball.getVelocity().x * -2 * cos(angle), ball.getVelocity().y * -2 * sin(angle) } / collisionTime;
-        }
-        passed = true;
+                  collidedLastFrame = true;
+            return Vector2D{ 0, ball.getVelocity().y * -2 } / collisionTime;
     }
     else
     {
     }
 }
 
-void Switch::setpassed(bool passed)
+
+
+void Switch::draw(Interface& interface) 
 {
-    this->passed = passed;
+    interface.drawSwitch(refpoint, length, angle);
+
 }
-
-void Switch::draw(Interface& interface)
-{
-	interface.drawSwitch(refpoint, arclength, angle);
-};
-
