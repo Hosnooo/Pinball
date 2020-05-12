@@ -144,7 +144,7 @@ void Interface::drawWall(float position)
 
 }
 
-	void Interface::drawGate(Vector2D refpoint, float length, float angle)
+	void Interface::drawSwitch(Vector2D refpoint, float length, float angle)
 	{
         sf::RectangleShape Gate(sf::Vector2f(length, 5.f));
         Gate.rotate(angle);
@@ -157,7 +157,7 @@ void Interface::drawWall(float position)
 
 	}
 
-    void Interface::drawSwitch(Vector2D refpoint, float arclength, float angle)
+    void Interface::drawGate(Vector2D refpoint, float arclength, float angle)
     {
         sf::ConvexShape Arc;
         Arc.setPointCount(9);

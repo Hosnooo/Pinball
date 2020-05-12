@@ -11,15 +11,15 @@ Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + 
             rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
             leftKicker(LEFT, Vector2D{ 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
 
-            Gate1hor(Vector2D{ GAME_WIDTH - 25- GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
-            Gate2hor(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
-            Gate1ver(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
-            Gate2ver(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Gate1(Vector2D{ GAME_WIDTH - 40 - ARC_LENGTH, GAME_HEIGHT - 300 + ARC_LENGTH }, ARC_LENGTH, 0),
+            Gate2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 0),
+            Gate3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH }, ARC_LENGTH, 0),
+            Gate4(Vector2D{ 100 + 3 / 2 * ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, 0),
 
-            Switch1(Vector2D{ GAME_WIDTH - 200 - ARC_LENGTH, GAME_HEIGHT - 300 + ARC_LENGTH }, ARC_LENGTH, 0),
-            Switch2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 0),
-            Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH}, ARC_LENGTH, 0),
-            Switch4(Vector2D{ 100 + 3/2*ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, 0),
+            Switch1(Vector2D{ GAME_WIDTH - 2 - GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Switch2(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL), 
+            Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Switch4(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
             
             //Odd numbered bumpers have coating.
             bumper1( Vector2D{ 500.0f,200.0f }, 40.0f, true),
@@ -65,6 +65,11 @@ void Game::simulate()
     Vector2D resultantAcceleration = {0, GRAVITY};  // Starting with gravity as the first acceleration contributer
     resultantAcceleration += leftWall.collideWith(ball, deltaTime);
     resultantAcceleration += rightWall.collideWith(ball, deltaTime);
+    resultantAcceleration += Switch1.collideWith(ball, deltaTime);
+    resultantAcceleration += Switch2.collideWith(ball, deltaTime);
+    resultantAcceleration += Switch3.collideWith(ball, deltaTime);
+    resultantAcceleration += Switch4.collideWith(ball, deltaTime);
+
     ball.move(resultantAcceleration, deltaTime);
 
    if (left)
@@ -114,10 +119,10 @@ void Game::updateInterfaceOutput()
     rightKicker.draw(interface);
     leftKicker.draw(interface);
 
-    Gate1hor.draw(interface);
-    Gate2hor.draw(interface);
-    Gate1ver.draw(interface);
-    Gate2ver.draw(interface);
+    Gate1.draw(interface);
+    Gate2.draw(interface);
+    Gate3.draw(interface);
+    Gate4.draw(interface);
 
     Switch1.draw(interface);
     Switch2.draw(interface);

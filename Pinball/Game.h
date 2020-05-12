@@ -35,7 +35,7 @@ private:
     Ball ball;  // The ball (obviously :D)
     Flipper leftFlipper, rightFlipper;  // The right and left flippers
     Kicker rightKicker, leftKicker; // The right and left kickers
-    Gate   Gate1hor, Gate2hor, Gate1ver, Gate2ver; // 4 Gates
+    Gate   Gate1, Gate2, Gate3, Gate4; // 4 Gates
     Switch Switch1, Switch2, Switch3, Switch4; // 4 Switches
     Bumper bumper1, bumper2, bumper3, bumper4;  // 4 Bumpers. odd numbered bumpers have coating.
     SpeedBoosters Sp1, Sp2, Sp3, Sp4; //3 speedboosters
