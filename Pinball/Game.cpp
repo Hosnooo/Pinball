@@ -5,8 +5,11 @@ using namespace std;
 
 #define GRAVITY 400.0f
 
-Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-            rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+Game::Game() : leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+
+            leftFloor(LEFT, 50, 25),
+            rightFloor(RIGHT, 50, 25),
 
             rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
             leftKicker(LEFT, Vector2D{ 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
@@ -26,22 +29,22 @@ Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + 
             bumper2( Vector2D{ 400.0f,250.0f }, 35.0f, false),
             bumper3( Vector2D{ 300.0f,200.0f }, 40.0f, true),
             bumper4( Vector2D{ 400.0f,150.0f }, 30.0f, false),
+    
+            Sp1(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2, GAME_HEIGHT - 200 }),
+            Sp2(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 175 }),
+            Sp3(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 150 }),
+            Sp4(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 125 }),
 
-    Sp1(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2, GAME_HEIGHT - 200 }),
-    Sp2(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 175 }),
-    Sp3(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 150 }),
-    Sp4(SPEEDBOOSTER_RADIUS, Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT - 125 }),
 
+            C1(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 150,GAME_HEIGHT - 380 }),
+            C2(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 200,GAME_HEIGHT - 400 }),
+            C3(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 170,GAME_HEIGHT - 450 }),
 
-    C1(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 150,GAME_HEIGHT - 380 }),
-    C2(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 200,GAME_HEIGHT - 400 }),
-    C3(COLLECTABLE_RADIUS, Vector2D{ GAME_WIDTH - 170,GAME_HEIGHT - 450 }),
+            M1(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 500,GAME_HEIGHT - 475 }),
+            M2(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 400,GAME_HEIGHT - 350 }),
+            M3(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 550,GAME_HEIGHT - 300 }),
 
-    M1(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 500,GAME_HEIGHT - 475 }),
-    M2(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 400,GAME_HEIGHT - 350 }),
-    M3(MULTIPLIERS_RADIUS, Vector2D{ GAME_WIDTH - 550,GAME_HEIGHT - 300 }),
-
-    s(Vector2D{ 0, 0 }),
+            s(Vector2D{ 0, 0 }),
 
             leftWall(1), rightWall(GAME_WIDTH) // This line should be removed
 {
@@ -120,6 +123,9 @@ void Game::updateInterfaceOutput()
     leftWall.draw(interface);
     rightWall.draw(interface);
 
+    leftFloor.draw(interface);
+    rightFloor.draw(interface);
+    
     rightKicker.draw(interface);
     leftKicker.draw(interface);
 

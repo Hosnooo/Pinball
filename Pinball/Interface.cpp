@@ -122,6 +122,10 @@ void Interface::drawWall(float position)
     window.draw(line, 2, sf::Lines);
 }
 
+void Interface::drawFloor(float lenght, float angle, FlipperType type) {
+    cout << "Hello World";
+}
+
 
     // draws a kicker
     void Interface::drawKicker(FlipperType type, Vector2D refpoint, float length, float base, float top) {
