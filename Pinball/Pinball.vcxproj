@@ -149,6 +149,7 @@
     <ClInclude Include="GameObjects\Collidable.h" />
     <ClInclude Include="GameObjects\Drawable.h" />
     <ClInclude Include="GameObjects\Flipper.h" />
+    <ClInclude Include="GameObjects\Floor.h" />
     <ClInclude Include="GameObjects\Obstacles\Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Gate.h" />
     <ClInclude Include="GameObjects\Obstacles\Kicker.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="GameObjects\Ball.cpp" />
     <ClCompile Include="GameObjects\Collectables.cpp" />
     <ClCompile Include="GameObjects\Flipper.cpp" />
+    <ClCompile Include="GameObjects\Floor.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Bumper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Gate.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Kicker.cpp" />

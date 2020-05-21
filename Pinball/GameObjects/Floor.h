@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Collidable.h"
-#include "Drawable.h"
+#include "Obstacle.h"
 
-class Floor {
+
+class Floor : public Obstacle {
 private:
 	FlipperType type;
 	float length;
@@ -15,7 +15,7 @@ public:
 	Vector2D collideWith(Ball& ball, float collisionTime) override;
 	
 	void draw(Interface& interface) override;
+	void setAngle(float angle);
+	void setLength(float length);
 };
 
-void setAngle(float angle);
-void setLength(float length);

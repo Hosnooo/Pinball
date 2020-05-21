@@ -9,7 +9,7 @@ class ScoreMultipliers:public Obstacle
     private:
         float radius;  // Radius of the speedbooster
         Vector2D center;  // The instantaneous center of the ball
-
+        bool collidedLastFrame;  // Whether or not the last frame was a collision (to prevent flapping)
 
     public:
 
