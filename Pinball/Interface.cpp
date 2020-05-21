@@ -122,6 +122,24 @@ void Interface::drawWall(float position)
     window.draw(line, 2, sf::Lines);
 }
 
+void Interface::drawFloor(float position)
+{
+    sf::Vertex line1[] =
+    {
+            sf::Vertex(sf::Vector2f(0, position), outlineColor),
+            sf::Vertex(sf::Vector2f(FLIPPER1_POSITION_X, position), outlineColor)
+    };
+    sf::Vertex line2[] =
+    {
+            sf::Vertex(sf::Vector2f(GAME_WIDTH, position), outlineColor),
+            sf::Vertex(sf::Vector2f(FLIPPER2_POSITION_X, position), outlineColor)
+    };
+    window.draw(line1, 2, sf::Lines);
+    window.draw(line2, 2, sf::Lines);
+
+
+}
+
 
     // draws a kicker
     void Interface::drawKicker(FlipperType type, Vector2D refpoint, float length, float base, float top) {
@@ -248,25 +266,50 @@ void Interface::drawWall(float position)
         window.draw(N);
     }
 
-
-
-
     void Interface::drawScore(Vector2D center)
+        {
+            Font font;
+            font.loadFromFile("Pacifico.ttf");
+
+            if (!font.loadFromFile("Pacifico.ttf"))
+            {
+                cout << "error loading font";
+            }
+
+            else
+            {
+                Text text;
+                text.setFont(font);
+                text.setString("Score:00000");
+                text.setFillColor(Color::Blue);
+                text.setOutlineColor(Color::Black);
+                text.setPosition(center.x, center.y);
+                text.setCharacterSize(20);
+                text.setStyle(Text::Bold);
+                window.draw(text);
+            }
+        }
+    
+    void Interface::drawGameover(Vector2D center)
     {
-        sf::Font font;
-        
+        Font font;
+        font.loadFromFile("Pacifico.ttf");
 
-     /*  if (!font.loadFromFile("ASMAN.ttf"));
-         {
-             cout << "error loading the file ";                                            //I tried diffrent .ttf files but they all fail. We can't read from file
-             system("pause");
+        if (!font.loadFromFile("Pacifico.ttf"))
+        {
+            cout << "error loading font";
+        }
 
-         }*/
-
-        Text text;
-        text.setFont(font);
-        text.setString("Score:0000000");
-        text.setCharacterSize(22);
-        text.setPosition(0, 0);
-        window.draw(text);
+        else
+        {
+            Text text;
+            text.setFont(font);
+            text.setString("GAME OVER");
+            text.setFillColor(Color::Blue);
+            text.setOutlineColor(Color::Black);
+            text.setPosition(center.x, center.y);
+            text.setCharacterSize(220);
+            text.setStyle(Text::Bold);
+            window.draw(text);
+        }
     }

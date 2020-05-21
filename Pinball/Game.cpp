@@ -5,11 +5,11 @@ using namespace std;
 
 #define GRAVITY 400.0f
 
-Game::Game(): leftFlipper(LEFT, Vector2D{ GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-            rightFlipper(RIGHT, Vector2D{ GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+Game::Game(): leftFlipper(LEFT, Vector2D{ FLIPPER1_POSITION_X, FLIPPER_POSITION_Y }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+            rightFlipper(RIGHT, Vector2D{ FLIPPER2_POSITION_X, FLIPPER_POSITION_Y }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
 
-            rightKicker(RIGHT, Vector2D{ GAME_WIDTH, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
-            leftKicker(LEFT, Vector2D{ 0, GAME_HEIGHT - 200 }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
+            rightKicker(RIGHT, Vector2D{ GAME_WIDTH, FLIPPER_POSITION_Y - KICKER_LENGTH }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
+            leftKicker(LEFT, Vector2D{ 0, FLIPPER_POSITION_Y - KICKER_LENGTH }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
 
             Gate1(Vector2D{ GAME_WIDTH - 40 - ARC_LENGTH, GAME_HEIGHT - 300 + ARC_LENGTH }, ARC_LENGTH, 0),
             Gate2(Vector2D{ 200 + ARC_LENGTH, GAME_HEIGHT - 300 }, ARC_LENGTH, 0),
@@ -91,72 +91,60 @@ void Game::simulate()
 
 void Game::GameOver()
 {
-    if (ball.getCenter().y - GAME_HEIGHT >= 0)
+     if (ball.getCenter().y - GAME_HEIGHT >= 0)
+     {
+         interface.drawGameover(Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT / 2 });
+     }
+
+ }
+
+    void Game::updateInterfaceOutput()
     {
-        sf::Font font;
-      /*  if (!font.loadFromFile("ASMAN.ttf"));
-        {
-            cout << "error loading the file ";
-            system("pause");
-        }*/
+        interface.clear();
 
-        Text text;
-        text.setFont(font);
-        text.setString("GAME OVER");
-        text.setCharacterSize(220);
-        text.setPosition(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        leftFlipper.draw(interface);
+        rightFlipper.draw(interface);
+
+        // The following two lines be replaced with a loop over collidable obstacles
+        leftWall.draw(interface);
+        rightWall.draw(interface);
+
+        rightKicker.draw(interface);
+        leftKicker.draw(interface);
+
+        Gate1.draw(interface);
+        Gate2.draw(interface);
+        Gate3.draw(interface);
+        Gate4.draw(interface);
+
+        Switch1.draw(interface);
+        Switch2.draw(interface);
+        Switch3.draw(interface);
+        Switch4.draw(interface);
+
+        bumper1.draw(interface);
+        bumper2.draw(interface);
+        bumper3.draw(interface);
+        bumper4.draw(interface);
+
+        Sp1.draw(interface);
+        Sp2.draw(interface);
+        Sp3.draw(interface);
+        Sp4.draw(interface);
+
+        C1.draw(interface);
+        C2.draw(interface);
+        C3.draw(interface);
+
+        M1.draw(interface);
+        M2.draw(interface);
+        M3.draw(interface);
+
+        s.draw(interface);
+
+        ball.draw(interface);
+        interface.display();
     }
-
-}
-
-void Game::updateInterfaceOutput()
-{
-    interface.clear();
-
-    leftFlipper.draw(interface);
-    rightFlipper.draw(interface);
-
-    // The following two lines be replaced with a loop over collidable obstacles
-    leftWall.draw(interface);
-    rightWall.draw(interface);
-
-    rightKicker.draw(interface);
-    leftKicker.draw(interface);
-
-    Gate1.draw(interface);
-    Gate2.draw(interface);
-    Gate3.draw(interface);
-    Gate4.draw(interface);
-
-    Switch1.draw(interface);
-    Switch2.draw(interface);
-    Switch3.draw(interface);
-    Switch4.draw(interface);
-
-    bumper1.draw(interface);
-    bumper2.draw(interface);
-    bumper3.draw(interface);
-    bumper4.draw(interface);
-
-    Sp1.draw(interface);
-    Sp2.draw(interface);
-    Sp3.draw(interface);
-    Sp4.draw(interface);
-
-    C1.draw(interface);
-    C2.draw(interface);
-    C3.draw(interface);
-
-    M1.draw(interface);
-    M2.draw(interface);
-    M3.draw(interface);
-
-    s.draw(interface);
-    
-    ball.draw(interface);
-    interface.display();
-}
-
 bool Game::exited() {
    /* if(GameOver())
         exit = GameOver();*/

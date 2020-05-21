@@ -40,6 +40,8 @@ public:
     void drawCollectable(Vector2D center, float radius);
     void drawScoreMultiplier(Vector2D center, float radius);
     void drawScore(Vector2D center);
+    void drawFloor(float position);
+    void drawGameover(Vector2D center);
 
 
 };
