@@ -122,23 +122,8 @@ void Interface::drawWall(float position)
     window.draw(line, 2, sf::Lines);
 }
 
-/*void Interface::drawFloor(float position)
+void Interface::drawFloor(float lenght, float angle, FlipperType type)
 {
-    sf::Vertex line1[] =
-    {
-            sf::Vertex(sf::Vector2f(0, position), outlineColor),
-            sf::Vertex(sf::Vector2f(FLIPPER1_POSITION_X, position), outlineColor)
-    };
-    sf::Vertex line2[] =
-    {
-            sf::Vertex(sf::Vector2f(GAME_WIDTH, position), outlineColor),
-            sf::Vertex(sf::Vector2f(FLIPPER2_POSITION_X, position), outlineColor)
-    };
-    window.draw(line1, 2, sf::Lines);
-    window.draw(line2, 2, sf::Lines);
-
-
-}*/
 
 
     // draws a kicker
