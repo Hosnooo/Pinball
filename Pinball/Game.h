@@ -11,6 +11,7 @@ using namespace std::chrono;
 #include "GameObjects/Ball.h"
 #include "GameObjects/Obstacles/Wall.h"
 #include "GameObjects/Flipper.h"
+#include"GameObjects/Floor.h"
 #include "GameObjects/Obstacles/Kicker.h"
 #include "GameObjects/Obstacles/Gate.h"
 #include "GameObjects/Obstacles/Switch.h"
@@ -39,6 +40,8 @@ private:
     Switch Switch1, Switch2, Switch3, Switch4; // 4 Switches
     Bumper bumper1, bumper2, bumper3, bumper4;  // 4 Bumpers. odd numbered bumpers have coating.
     SpeedBoosters Sp1, Sp2, Sp3, Sp4; //3 speedboosters
+    Floor rightFloor;
+    Floor leftFloor;
     Collectables C1, C2, C3;
     ScoreMultipliers M1, M2, M3;
     Score s;
