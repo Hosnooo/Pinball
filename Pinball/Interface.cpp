@@ -122,7 +122,7 @@ void Interface::drawWall(float position)
     window.draw(line, 2, sf::Lines);
 }
 
-void Interface::drawFloor(float position)
+/*void Interface::drawFloor(float position)
 {
     sf::Vertex line1[] =
     {
@@ -138,7 +138,7 @@ void Interface::drawFloor(float position)
     window.draw(line2, 2, sf::Lines);
 
 
-}
+}*/
 
 
     // draws a kicker

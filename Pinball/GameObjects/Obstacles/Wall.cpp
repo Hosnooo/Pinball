@@ -8,7 +8,7 @@ Wall::Wall(float position): position(position), collidedLastFrame(false) {}
 void Wall::draw(Interface & interface)
 {
     interface.drawWall(position);
-    interface.drawFloor(FLIPPER_POSITION_Y);
+    /*interface.drawFloor(FLIPPER_POSITION_Y);*/
 }
 
 Vector2D Wall::collideWith(Ball & ball, float collisionTime)
