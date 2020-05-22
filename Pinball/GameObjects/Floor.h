@@ -2,8 +2,7 @@
 
 #include "Obstacles/Obstacle.h"
 
-
-class Floor: public Obstacle {
+class Floor : public Obstacle {
 private:
 	FlipperType type;
 	float length;
@@ -15,7 +14,7 @@ public:
 	Vector2D collideWith(Ball& ball, float collisionTime) override;
 	
 	void draw(Interface& interface) override;
-	
 	void setAngle(float angle);
 	void setLength(float length);
 };
+

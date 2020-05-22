@@ -40,7 +40,7 @@ private:
     Switch Switch1, Switch2, Switch3, Switch4; // 4 Switches
     Bumper bumper1, bumper2, bumper3, bumper4;  // 4 Bumpers. odd numbered bumpers have coating.
     SpeedBoosters Sp1, Sp2, Sp3, Sp4; //3 speedboosters
-    Floor rightFloor;
+   Floor rightFloor;
     Floor leftFloor;
     Collectables C1, C2, C3;
     ScoreMultipliers M1, M2, M3;

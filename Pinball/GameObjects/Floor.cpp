@@ -9,11 +9,11 @@ void Floor:: draw(Interface& interface) {
 	interface.drawFloor(length, angle, type);
 }
 
-void Floor:: setAngle(float angle) {
+void Floor::setAngle(float angle) {
 	this->angle=angle;
 
 }
 
-void Floor:: setLength(float length) {
+void Floor::setLength(float length) {
 	this->length = length;
 }
