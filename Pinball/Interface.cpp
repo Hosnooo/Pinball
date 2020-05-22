@@ -252,28 +252,48 @@ void Interface::drawFloor(float lenght, float angle, FlipperType type) {
     }
 
     void Interface::drawScore(Vector2D center)
-        {
-            Font font;
-            font.loadFromFile("Pacifico.ttf");
+    {
+        Font font;
+        font.loadFromFile("Pacifico.ttf");
 
-            if (!font.loadFromFile("Pacifico.ttf"))
+        if (!font.loadFromFile("Pacifico.ttf"))
+        {
+            cout << "error loading font";
+        }
+
+        else
+        {
+            if (isover == false)
+
             {
-                cout << "error loading font";
+                Text text;
+                text.setFont(font);
+                text.setString("Score:");
+                text.setFillColor(Color::Blue);
+                text.setOutlineColor(Color::Black);
+                text.setPosition(0, 0);
+                text.setCharacterSize(20);
+                text.setStyle(Text::Bold);
+                window.draw(text);
             }
 
             else
             {
                 Text text;
                 text.setFont(font);
-                text.setString("Score:00000");
-                text.setFillColor(Color::Blue);
+                text.setString("Game Over\nScore:");
+                text.setFillColor(Color::Red);
                 text.setOutlineColor(Color::Black);
-                text.setPosition(center.x, center.y);
-                text.setCharacterSize(20);
+                text.setPosition(200, 200);
+                text.setCharacterSize(70);
                 text.setStyle(Text::Bold);
+                window.clear();
                 window.draw(text);
+
             }
+
         }
+    }
     
     void Interface::drawGameover(Vector2D center)
     {
@@ -297,4 +317,15 @@ void Interface::drawFloor(float lenght, float angle, FlipperType type) {
             text.setStyle(Text::Bold);
             window.draw(text);
         }
+    }
+
+    void Interface::setIsOver(bool x)
+    {
+        isover = x;
+
+    }
+
+    bool Interface::getIsOver()
+    {
+        return isover;
     }

@@ -98,14 +98,22 @@ void Game::simulate()
    
 }
 
-void Game::GameOver()
+void Game::gameOver()
 {
-     if (ball.getCenter().y - GAME_HEIGHT >= 0)
-     {
-         interface.drawGameover(Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT / 2 });
-     }
+    if (ball.getCenter().y >= GAME_HEIGHT)
+    {
 
- }
+        interface.setIsOver(true);
+
+    }
+
+    else
+    {
+        interface.setIsOver(false);
+
+    }
+
+}
 
     void Game::updateInterfaceOutput()
     {
@@ -152,6 +160,7 @@ void Game::GameOver()
         M2.draw(interface);
         M3.draw(interface);
 
+        gameOver();
         s.draw(interface);
 
         ball.draw(interface);

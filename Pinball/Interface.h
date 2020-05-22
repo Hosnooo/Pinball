@@ -21,7 +21,7 @@ private:
         gateFillColor = sf::Color::Red,
         switchFillColor = sf::Color::White;
     const float outlineThickness = -2.0f;  // Negative sign means inwards
-
+    bool isover = false;
 public:
     Interface();  // Constructor
     void getControls(bool & exit, bool & left, bool & right);  // Detects the buttons pressed
@@ -42,6 +42,7 @@ public:
     void drawScoreMultiplier(Vector2D center, float radius);
     void drawScore(Vector2D center);
     void drawGameover(Vector2D center);
-
+    void setIsOver(bool x);
+    bool getIsOver();
 
 };

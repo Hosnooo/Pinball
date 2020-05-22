@@ -12,8 +12,6 @@ int main()
         game.simulate();
         // Update the game graphical interface
         game.updateInterfaceOutput();
-        //checks if the player lost or not
-        game.GameOver();
     }
     return 0;
 }
