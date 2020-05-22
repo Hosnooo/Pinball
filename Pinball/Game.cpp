@@ -106,6 +106,8 @@ void Game::simulate()
        int s = interface.getSCORE();
        interface.setSCORE(s += 100);
    }
+
+   exited();
 }
 
 void Game::gameOver()
@@ -178,9 +180,18 @@ void Game::gameOver()
 
 
     }
-bool Game::exited() {
-   /* if(GameOver())
-        exit = GameOver();*/
 
-    return exit;
-}
+    bool Game::exited()
+    {
+        if (exit)
+        {
+
+            return true;
+
+        }
+
+        else
+        {
+            return false;
+        }
+    }
