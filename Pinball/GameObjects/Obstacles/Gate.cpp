@@ -7,7 +7,7 @@ Vector2D Gate::collideWith(Ball& ball, float collisionTime)
 {
   
     if (!collidedLastFrame && abs(refpoint.y - ball.getCenter().y) < ball.getRadius()
-        && (abs(refpoint.x - ball.getCenter().x) < ball.getRadius() || abs(refpoint.x + ARC_LENGTH - ball.getCenter().x) < ball.getRadius()))
+        && (abs(refpoint.x - ball.getCenter().x) < ball.getRadius() || abs(refpoint.x + ARC_LENGTH - ball.getCenter().x) < ball.getRadius()) && ball.getVelocity().y>0)
     {
            collidedLastFrame = true;
             return Vector2D{ 0, ball.getVelocity().y * -2 } / collisionTime;

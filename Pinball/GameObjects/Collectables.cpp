@@ -26,7 +26,7 @@ Vector2D Collectables::getCenter() const
 
 void Collectables::ChangeColor(Ball & ball, Interface & interface)
     {
-        if (!collidedLastFrame && sqrt(pow(center.x - ball.getCenter().x, 2) + pow(center.y - ball.getCenter().y, 2)) <= ball.getRadius() + MULTIPLIERS_RADIUS)
+        if (!collidedLastFrame && sqrt(pow(getCenter().x - ball.getCenter().x, 2) + pow(getCenter().y - ball.getCenter().y, 2)) <= ball.getRadius() + MULTIPLIERS_RADIUS)
         {
             collidedLastFrame = true;
             interface.drawCollectable(center, radius, sf::Color::Yellow);

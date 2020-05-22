@@ -19,9 +19,9 @@ Game::Game() : leftFlipper(LEFT, Vector2D{ FLIPPER1_POSITION_X, FLIPPER_POSITION
             Gate3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH }, ARC_LENGTH, 0),
             Gate4(Vector2D{ 100 + 3 / 2 * ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, 0),
 
-            Switch1(Vector2D{ GAME_WIDTH - 2 - GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Switch1(Vector2D{ GAME_WIDTH - 200, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
             Switch2(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL), 
-            Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Switch3(Vector2D{ GAME_WIDTH - 200, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
             Switch4(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
             
             //Odd numbered bumpers have coating.
@@ -79,6 +79,9 @@ void Game::simulate()
     resultantAcceleration += M1.collideWith(ball, deltaTime);
     resultantAcceleration += M2.collideWith(ball, deltaTime);
     resultantAcceleration += M3.collideWith(ball, deltaTime);
+    resultantAcceleration += Sp1.collideWith(ball, deltaTime);
+    resultantAcceleration += Sp2.collideWith(ball, deltaTime);
+    resultantAcceleration += Sp2.collideWith(ball, deltaTime);
 
     ball.move(resultantAcceleration, deltaTime);
 
@@ -141,6 +144,9 @@ void Game::GameOver()
         C1.draw(interface);
         C2.draw(interface);
         C3.draw(interface);
+        C1.ChangeColor(ball, interface);
+        C2.ChangeColor(ball, interface);
+        C3.ChangeColor(ball, interface);
 
         M1.draw(interface);
         M2.draw(interface);
