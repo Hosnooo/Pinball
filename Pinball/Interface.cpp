@@ -268,7 +268,7 @@ void Interface::drawFloor(float lenght, float angle, FlipperType type) {
             {
                 Text text;
                 text.setFont(font);
-                text.setString("Score:");
+                text.setString("Score:"+to_string(SCORE));
                 text.setFillColor(Color::Blue);
                 text.setOutlineColor(Color::Black);
                 text.setPosition(0, 0);
@@ -281,7 +281,7 @@ void Interface::drawFloor(float lenght, float angle, FlipperType type) {
             {
                 Text text;
                 text.setFont(font);
-                text.setString("Game Over\nScore:");
+                text.setString("Game Over\nScore:" + to_string(SCORE));
                 text.setFillColor(Color::Red);
                 text.setOutlineColor(Color::Black);
                 text.setPosition(200, 200);
@@ -328,4 +328,14 @@ void Interface::drawFloor(float lenght, float angle, FlipperType type) {
     bool Interface::getIsOver()
     {
         return isover;
+    }
+
+    void Interface::setSCORE(int s)
+    {
+        SCORE = s;
+    }
+
+    int Interface::getSCORE()
+    {
+        return SCORE;
     }

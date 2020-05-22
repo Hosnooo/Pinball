@@ -22,6 +22,7 @@ private:
         switchFillColor = sf::Color::White;
     const float outlineThickness = -2.0f;  // Negative sign means inwards
     bool isover = false;
+    int SCORE = 0;
 public:
     Interface();  // Constructor
     void getControls(bool & exit, bool & left, bool & right);  // Detects the buttons pressed
@@ -44,5 +45,6 @@ public:
     void drawGameover(Vector2D center);
     void setIsOver(bool x);
     bool getIsOver();
-
+    void setSCORE(int s);
+    int getSCORE();
 };

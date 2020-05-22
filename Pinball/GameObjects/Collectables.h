@@ -24,4 +24,7 @@ public:
     Vector2D getCenter() const;
     void draw(Interface& interface) override;
     void ChangeColor(Ball& ball, Interface& interface);
+    void setCollidedLastFrame(bool col);
+    bool getCollidedLastFrame();
+
 };

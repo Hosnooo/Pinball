@@ -95,7 +95,17 @@ void Game::simulate()
    else {
        rightFlipper.setAngle(-30.f);
    }
-   
+
+   if (C1.getCollidedLastFrame() || C2.getCollidedLastFrame() || C3.getCollidedLastFrame())
+   {
+       int s = interface.getSCORE();
+       interface.setSCORE(s += 50);
+   }
+   if (M1.getCollidedLastFrame() || M2.getCollidedLastFrame() || M3.getCollidedLastFrame())
+   {
+       int s = interface.getSCORE();
+       interface.setSCORE(s += 100);
+   }
 }
 
 void Game::gameOver()
@@ -165,6 +175,8 @@ void Game::gameOver()
 
         ball.draw(interface);
         interface.display();
+
+
     }
 bool Game::exited() {
    /* if(GameOver())

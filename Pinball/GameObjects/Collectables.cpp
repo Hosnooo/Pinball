@@ -37,6 +37,16 @@ void Collectables::ChangeColor(Ball & ball, Interface & interface)
         }
  }
 
+void Collectables::setCollidedLastFrame(bool coll)
+{
+    collidedLastFrame = coll;
+}
+
+bool Collectables::getCollidedLastFrame()
+{
+    return collidedLastFrame;
+}
+
 void Collectables::draw(Interface& interface)
 {
 
