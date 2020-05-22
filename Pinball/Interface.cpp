@@ -216,13 +216,13 @@ void Interface::drawFloor(float lenght, float angle, FlipperType type) {
         window.draw(triangle);
     }
 
-    void Interface::drawCollectable(Vector2D center, float radius)
+    void Interface::drawCollectable(Vector2D center, float radius, Color color)
     {
         CircleShape C;
         C.setRadius(radius);
         C.setOrigin(radius, radius);
         C.setPosition(center.x, center.y);
-        C.setFillColor(Color::Cyan);
+        C.setFillColor(color);
         C.setOutlineThickness(2.f);
         C.setOutlineColor(Color::Black);
         window.draw(C);
