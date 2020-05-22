@@ -32,7 +32,7 @@ public:
     void drawBall(Vector2D center, float radius);  // Draws a ball
     void drawFlipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);  // Draws a flipper
     void drawWall(float position);  // Draws a vertical wall
-    void drawFloor(float lenght, float angle, FlipperType type);
+    void drawFloor(FlipperType type, float lenght, sf::Vector2f position);
     void drawKicker(FlipperType type, Vector2D refpoint, float length, float base, float top);  // Draws a Kicker
     void drawGate(Vector2D refpoint, float length, float angle); //Draws a Gate
     void drawSwitch(Vector2D refpoint, float length, float angle); //Draws a Switch

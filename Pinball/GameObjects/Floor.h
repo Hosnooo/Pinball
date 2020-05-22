@@ -6,15 +6,13 @@ class Floor : public Obstacle {
 private:
 	FlipperType type;
 	float length;
-	float angle;
-
+	sf::Vector2f position;
 public:
-	Floor(FlipperType type, float length, float angle);
+	Floor(FlipperType type, float length, sf::Vector2f position);
 
 	Vector2D collideWith(Ball& ball, float collisionTime) override;
 	
 	void draw(Interface& interface) override;
-	void setAngle(float angle);
 	void setLength(float length);
 };
 

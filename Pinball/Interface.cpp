@@ -122,9 +122,16 @@ void Interface::drawWall(float position)
     window.draw(line, 2, sf::Lines);
 }
 
-void Interface::drawFloor(float lenght, float angle, FlipperType type) {
+void Interface::drawFloor(FlipperType type, float length, sf::Vector2f position) {
+    float flip = type == LEFT ? -1.0f : 1.0f;
 
+    sf::RectangleShape floor(sf::Vector2f(length,2));
+    floor.setOrigin(length, 4.0f);
+    floor.setPosition(position);
+    floor.setFillColor(sf::Color::Black);
+    floor.setScale(flip, 1.0f);
 
+    window.draw(floor);
 }
 
     // draws a kicker
