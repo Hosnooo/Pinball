@@ -224,13 +224,13 @@ void Interface::drawFloor(FlipperType type, float length, sf::Vector2f position)
         window.draw(triangle);
     }
 
-    void Interface::drawCollectable(Vector2D center, float radius)
+    void Interface::drawCollectable(Vector2D center, float radius, Color color)
     {
         CircleShape C;
         C.setRadius(radius);
         C.setOrigin(radius, radius);
         C.setPosition(center.x, center.y);
-        C.setFillColor(Color::Cyan);
+        C.setFillColor(color);
         C.setOutlineThickness(2.f);
         C.setOutlineColor(Color::Black);
         window.draw(C);
@@ -260,28 +260,48 @@ void Interface::drawFloor(FlipperType type, float length, sf::Vector2f position)
     }
 
     void Interface::drawScore(Vector2D center)
-        {
-            Font font;
-            font.loadFromFile("Pacifico.ttf");
+    {
+        Font font;
+        font.loadFromFile("Pacifico.ttf");
 
-            if (!font.loadFromFile("Pacifico.ttf"))
+        if (!font.loadFromFile("Pacifico.ttf"))
+        {
+            cout << "error loading font";
+        }
+
+        else
+        {
+            if (isover == false)
+
             {
-                cout << "error loading font";
+                Text text;
+                text.setFont(font);
+                text.setString("Score:"+to_string(SCORE));
+                text.setFillColor(Color::Blue);
+                text.setOutlineColor(Color::Black);
+                text.setPosition(0, 0);
+                text.setCharacterSize(20);
+                text.setStyle(Text::Bold);
+                window.draw(text);
             }
 
             else
             {
                 Text text;
                 text.setFont(font);
-                text.setString("Score:00000");
-                text.setFillColor(Color::Blue);
+                text.setString("Game Over\nScore:" + to_string(SCORE));
+                text.setFillColor(Color::Red);
                 text.setOutlineColor(Color::Black);
-                text.setPosition(center.x, center.y);
-                text.setCharacterSize(20);
+                text.setPosition(200, 200);
+                text.setCharacterSize(70);
                 text.setStyle(Text::Bold);
+                window.clear();
                 window.draw(text);
+
             }
+
         }
+    }
     
     void Interface::drawGameover(Vector2D center)
     {
@@ -305,4 +325,25 @@ void Interface::drawFloor(FlipperType type, float length, sf::Vector2f position)
             text.setStyle(Text::Bold);
             window.draw(text);
         }
+    }
+
+    void Interface::setIsOver(bool x)
+    {
+        isover = x;
+
+    }
+
+    bool Interface::getIsOver()
+    {
+        return isover;
+    }
+
+    void Interface::setSCORE(int s)
+    {
+        SCORE = s;
+    }
+
+    int Interface::getSCORE()
+    {
+        return SCORE;
     }

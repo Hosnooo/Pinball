@@ -21,7 +21,8 @@ class ScoreMultipliers:public Obstacle
         Vector2D getCenter() const;
         void draw(Interface & interface) override;
         Vector2D collideWith(Ball& ball, float collisionTime) override;
-
+        void setCollidedLastFrame(bool col);
+        bool getCollidedLastFrame();
 
 };
 

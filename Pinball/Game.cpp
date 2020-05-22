@@ -19,9 +19,9 @@ Game::Game() : leftFlipper(LEFT, Vector2D{ FLIPPER1_POSITION_X, FLIPPER_POSITION
             Gate3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 650 + ARC_LENGTH }, ARC_LENGTH, 0),
             Gate4(Vector2D{ 100 + 3 / 2 * ARC_LENGTH, GAME_HEIGHT - 650 }, ARC_LENGTH, 0),
 
-            Switch1(Vector2D{ GAME_WIDTH - 2 - GATE_LENGTH, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Switch1(Vector2D{ GAME_WIDTH - 200, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL),
             Switch2(Vector2D{ 25, GAME_HEIGHT - 500 }, GATE_LENGTH, GATE_HORIZONTAL), 
-            Switch3(Vector2D{ GAME_WIDTH - 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
+            Switch3(Vector2D{ GAME_WIDTH - 200, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
             Switch4(Vector2D{ 100, GAME_HEIGHT - 250 }, GATE_LENGTH, GATE_HORIZONTAL),
             
             //Odd numbered bumpers have coating.
@@ -79,6 +79,9 @@ void Game::simulate()
     resultantAcceleration += M1.collideWith(ball, deltaTime);
     resultantAcceleration += M2.collideWith(ball, deltaTime);
     resultantAcceleration += M3.collideWith(ball, deltaTime);
+    resultantAcceleration += Sp1.collideWith(ball, deltaTime);
+    resultantAcceleration += Sp2.collideWith(ball, deltaTime);
+    resultantAcceleration += Sp2.collideWith(ball, deltaTime);
 
     ball.move(resultantAcceleration, deltaTime);
 
@@ -92,17 +95,37 @@ void Game::simulate()
    else {
        rightFlipper.setAngle(-30.f);
    }
-   
+
+   if (C1.getCollidedLastFrame() || C2.getCollidedLastFrame() || C3.getCollidedLastFrame())
+   {
+       int s = interface.getSCORE();
+       interface.setSCORE(s += 50);
+   }
+   if (M1.getCollidedLastFrame() || M2.getCollidedLastFrame() || M3.getCollidedLastFrame())
+   {
+       int s = interface.getSCORE();
+       interface.setSCORE(s += 100);
+   }
+
+   exited();
 }
 
-void Game::GameOver()
+void Game::gameOver()
 {
-     if (ball.getCenter().y - GAME_HEIGHT >= 0)
-     {
-         interface.drawGameover(Vector2D{ GAME_WIDTH / 2,GAME_HEIGHT / 2 });
-     }
+    if (ball.getCenter().y >= GAME_HEIGHT)
+    {
 
- }
+        interface.setIsOver(true);
+
+    }
+
+    else
+    {
+        interface.setIsOver(false);
+
+    }
+
+}
 
     void Game::updateInterfaceOutput()
     {
@@ -144,19 +167,34 @@ void Game::GameOver()
         C1.draw(interface);
         C2.draw(interface);
         C3.draw(interface);
+        C1.ChangeColor(ball, interface);
+        C2.ChangeColor(ball, interface);
+        C3.ChangeColor(ball, interface);
 
         M1.draw(interface);
         M2.draw(interface);
         M3.draw(interface);
 
+        gameOver();
         s.draw(interface);
 
         ball.draw(interface);
         interface.display();
-    }
-bool Game::exited() {
-   /* if(GameOver())
-        exit = GameOver();*/
 
-    return exit;
-}
+
+    }
+
+    bool Game::exited()
+    {
+        if (exit)
+        {
+
+            return true;
+
+        }
+
+        else
+        {
+            return false;
+        }
+    }

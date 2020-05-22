@@ -41,3 +41,13 @@ Vector2D ScoreMultipliers::collideWith(Ball& ball, float collisionTime)
         return Vector2D{ 0, 0 };
     }         
 }
+
+void ScoreMultipliers::setCollidedLastFrame(bool coll)
+{
+    collidedLastFrame = coll;
+}
+
+bool ScoreMultipliers::getCollidedLastFrame()
+{
+    return collidedLastFrame;
+}
