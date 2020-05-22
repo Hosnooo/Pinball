@@ -124,6 +124,7 @@ void Interface::drawWall(float position)
 
 void Interface::drawFloor(float lenght, float angle, FlipperType type) {
 
+
 }
 
     // draws a kicker

@@ -8,8 +8,8 @@ using namespace std;
 Game::Game() : leftFlipper(LEFT, Vector2D{ FLIPPER1_POSITION_X, FLIPPER_POSITION_Y }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
             rightFlipper(RIGHT, Vector2D{ FLIPPER2_POSITION_X, FLIPPER_POSITION_Y }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
 
-            leftFloor(LEFT, 50.0f, 200),
-            rightFloor(RIGHT, 50.0f, 200),
+            leftFloor(LEFT, 50.0f, 200.0f),
+            rightFloor(RIGHT, 50.0f, 200.0f),
 
             rightKicker(RIGHT, Vector2D{ GAME_WIDTH, FLIPPER_POSITION_Y - KICKER_LENGTH }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
             leftKicker(LEFT, Vector2D{ 0, FLIPPER_POSITION_Y - KICKER_LENGTH }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
@@ -111,6 +111,9 @@ void Game::GameOver()
         // The following two lines be replaced with a loop over collidable obstacles
         leftWall.draw(interface);
         rightWall.draw(interface);
+
+        leftFloor.draw(interface);
+        rightFloor.draw(interface);
 
         rightKicker.draw(interface);
         leftKicker.draw(interface);
