@@ -125,8 +125,8 @@ void Interface::drawWall(float position)
 void Interface::drawFloor(FlipperType type, float length, sf::Vector2f position) {
     float flip = type == LEFT ? -1.0f : 1.0f;
 
-    sf::RectangleShape floor(sf::Vector2f(length,2));
-    floor.setOrigin(length, 4.0f);
+    sf::RectangleShape floor(sf::Vector2f(length,4));
+   // floor.setOrigin(length,0);
     floor.setPosition(position);
     floor.setFillColor(sf::Color::Black);
     floor.setScale(flip, 1.0f);
