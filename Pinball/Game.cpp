@@ -83,11 +83,13 @@ void Game::simulate()
     resultantAcceleration += Sp1.collideWith(ball, deltaTime);
     resultantAcceleration += Sp2.collideWith(ball, deltaTime);
     resultantAcceleration += Sp2.collideWith(ball, deltaTime);
-
     resultantAcceleration += leftFloor.collideWith(ball, deltaTime);
     resultantAcceleration += rightFloor.collideWith(ball, deltaTime);
     resultantAcceleration += ceiling.collideWith(ball, deltaTime);
 
+    resultantAcceleration += rightKicker.collideWith(ball, deltaTime);
+    resultantAcceleration += leftKicker.collideWith(ball, deltaTime);
+    
     ball.move(resultantAcceleration, deltaTime);
 
    if (left)
