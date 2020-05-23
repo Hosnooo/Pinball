@@ -8,8 +8,9 @@ using namespace std;
 Game::Game() : leftFlipper(LEFT, Vector2D{ FLIPPER1_POSITION_X, FLIPPER_POSITION_Y }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
             rightFlipper(RIGHT, Vector2D{ FLIPPER2_POSITION_X, FLIPPER_POSITION_Y }, FLIPPER_LENGTH, 30.0f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
 
-            leftFloor(LEFT, 80.0f, sf::Vector2f(KICKER_BASE, FLIPPER_POSITION_Y)),
-            rightFloor(RIGHT, 80.0f, sf::Vector2f(GAME_WIDTH- KICKER_BASE, FLIPPER_POSITION_Y)),
+            leftFloor(LEFT, 100.0f, sf::Vector2f(KICKER_BASE, FLIPPER_POSITION_Y)),
+            rightFloor(RIGHT, 100.0f, sf::Vector2f(GAME_WIDTH- KICKER_BASE, FLIPPER_POSITION_Y)),
+            ceiling(RIGHT, GAME_WIDTH, sf::Vector2f( 0 ,0 )),
 
             rightKicker(RIGHT, Vector2D{ GAME_WIDTH, FLIPPER_POSITION_Y - KICKER_LENGTH }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
             leftKicker(LEFT, Vector2D{ 0, FLIPPER_POSITION_Y - KICKER_LENGTH }, KICKER_LENGTH, KICKER_BASE, KICKER_TOP),
@@ -83,6 +84,10 @@ void Game::simulate()
     resultantAcceleration += Sp2.collideWith(ball, deltaTime);
     resultantAcceleration += Sp2.collideWith(ball, deltaTime);
 
+    resultantAcceleration += leftFloor.collideWith(ball, deltaTime);
+    resultantAcceleration += rightFloor.collideWith(ball, deltaTime);
+    resultantAcceleration += ceiling.collideWith(ball, deltaTime);
+
     ball.move(resultantAcceleration, deltaTime);
 
    if (left)
@@ -114,9 +119,7 @@ void Game::gameOver()
 {
     if (ball.getCenter().y >= GAME_HEIGHT)
     {
-
         interface.setIsOver(true);
-
     }
 
     else
@@ -140,6 +143,7 @@ void Game::gameOver()
 
         leftFloor.draw(interface);
         rightFloor.draw(interface);
+        ceiling.draw(interface);
 
         rightKicker.draw(interface);
         leftKicker.draw(interface);
@@ -188,9 +192,7 @@ void Game::gameOver()
     {
         if (exit)
         {
-
             return true;
-
         }
 
         else

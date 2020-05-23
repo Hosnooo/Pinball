@@ -11,9 +11,8 @@ Vector2D Gate::collideWith(Ball& ball, float collisionTime)
     {
            collidedLastFrame = true;
             return Vector2D{ 0, ball.getVelocity().y * -2 } / collisionTime;
-       
-       
     }
+
     else
     {
         collidedLastFrame = false;

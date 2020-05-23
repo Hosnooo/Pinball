@@ -1,8 +1,17 @@
 #include "Floor.h"
-Floor:: Floor(FlipperType type, float length, sf::Vector2f position): type(type), length(length), position(position) {}
+Floor:: Floor(FlipperType type, float length, sf::Vector2f position): type(type), length(length), position(position), collidedLastFrame(false) {}
 
 Vector2D Floor::collideWith(Ball& ball, float collisionTime) {
-	return Vector2D{ 0,0 };
+    if (!collidedLastFrame && abs(position.y - ball.getCenter().y) < ball.getRadius())
+    {
+        collidedLastFrame = true;
+            return Vector2D{ 0, ball.getVelocity().y * -1 } / collisionTime;
+    }
+    else
+    {
+        collidedLastFrame = false;
+        return Vector2D{ 0, 0 };
+    }
 }
 
 void Floor:: draw(Interface& interface) {
